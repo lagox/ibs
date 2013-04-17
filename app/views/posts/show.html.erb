@@ -1,0 +1,19 @@
+<h2 class="add_post_link"><%= link_to "Добавить пост", new_post_path %></h2>
+<div class="posts-index">
+    <div class="post-one">
+      <h1 class="post-title"><%= @post.title %></h3>
+      <div class="post-body">
+        <%= @post.body %>
+      </div>
+      <div class="post-author">
+        Автор: <%= @post.author %>
+      </div>
+      <div class="post-published-date">
+        Дата публикации: <%= @post.published_date %>
+      </div>
+      <div class="post-actions">
+        <%= link_to "редактировать", edit_post_path(@post) %>
+        <%= link_to "удалить", @post, method: :delete, confirm: "Вы уверены?" %>
+      </div>
+    </div>
+</div>

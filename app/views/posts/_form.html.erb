@@ -1,0 +1,32 @@
+<div class="form-post">
+  <% if @post.errors.any? %>
+    <div class="errors_validation">
+      <% @post.errors.full_messages.each do |e| %>
+        <div class="row_error">
+          <%= e %>
+        </div> 
+      <% end %>
+    </div>
+  <% end %>
+  <%= form_for(@post) do |p| %>
+  <div class="row-form">
+    <%= p.label :title, "Название:" %>
+    <%= p.text_field :title %>
+  </div>
+  <div class="row-form">
+    <%= p.label :body, "Текст:" %>
+    <%= p.text_area :body %>
+  </div>
+  <div class="row-form">
+    <%= p.label :author, "Автор:" %>
+    <%= p.text_field :author %>
+  </div>
+  <div class="row-form">
+    <%= p.label :published_date, "Дата публикации:" %>
+    <%= p.date_select :published_date %>
+  </div>
+  <div class="row-form">
+    <%= p.submit @post.button_label %>
+  </div>
+  <% end %>
+</div>
